@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#define quantNotas 3
+#define quantMaterias 3
+        int main(){
+        setlocale(LC_ALL,"");
+        float notas[quantMaterias][quantNotas],media[quantMaterias],peso[3]={3,3,4};
+        float soma=0,somatotal=0;
+        char materias[quantMaterias][200];
+        int i,j;
+   
+      for (i=0;i<quantMaterias;i++){
+      printf("Digite a matéria: ");
+      scanf("%s",&materias[i]);
+      
+      for (j=0;j<quantNotas;j++){
+      	do{
+      printf("Sua %i nota: ",j+1);
+      scanf("%f",&notas[i][j]);
+} while (notas[i][j]<0  || notas[i][j]>10);
+	  soma=notas[i][j]*peso[j];
+      somatotal+=soma;
+}media[i]=somatotal/10;
+somatotal=0;
+system("cls");
+}
+      for (i=0;i<quantMaterias;i++){
+            printf("\n %i - Materia: %s\n",i+1,materias[i]);
+      for (j=0;j<quantNotas;j++){
+      printf("%i - Nota : %.2f peso %.2f\n",j+1,notas[i][j],peso[j]);
+}
+   printf("Média: %.2f\n",media[i]);
+} return 0;
+}
